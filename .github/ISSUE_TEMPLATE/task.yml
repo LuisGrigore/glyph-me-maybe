@@ -1,0 +1,51 @@
+name: "🔧 Task"
+description: Create a technical or development task
+title: "[Task]: "
+labels:
+  - task
+
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: What do we want to accomplish?
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Provide the information needed to understand this task.
+    validations:
+      required: true
+
+  - type: textarea
+    id: implementation
+    attributes:
+      label: Implementation Details
+      description: Describe how the task should be approached, if applicable.
+      placeholder: |
+        - Create...
+        - Update...
+        - Remove...
+        - Configure...
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Define the conditions that must be met to complete this task.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+        - [ ] Tests are updated
+        - [ ] Documentation is updated if necessary
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
