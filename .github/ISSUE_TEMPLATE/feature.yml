@@ -1,0 +1,62 @@
+name: "✨ Feature Request"
+description: Suggest a new feature or improvement
+title: "[Feature]: "
+labels:
+  - enhancement
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting an improvement!
+        Please explain the problem and the proposed solution.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or Need
+      description: What problem would this feature solve?
+      placeholder: "Currently, users cannot..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Solution
+      description: Describe the feature you would like to see.
+      placeholder: "Add a feature that allows users to..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected Behavior
+      description: Explain how the feature should work from the user's perspective.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Have you considered other solutions or workarounds?
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Define the conditions that must be met for this feature to be considered complete.
+      placeholder: |
+        - [ ] Users can...
+        - [ ] The system validates...
+        - [ ] Errors are handled properly...
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Add any other relevant information.

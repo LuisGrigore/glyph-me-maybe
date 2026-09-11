@@ -1,0 +1,44 @@
+name: "🧹 Chore"
+description: Create a maintenance, configuration, or technical housekeeping task
+title: "[Chore]: "
+labels:
+  - chore
+
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What maintenance task needs to be completed?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason
+      description: Why is this change necessary?
+    validations:
+      required: true
+
+  - type: textarea
+    id: changes
+    attributes:
+      label: Planned Changes
+      placeholder: |
+        - Update...
+        - Remove...
+        - Configure...
+        - Migrate...
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      placeholder: |
+        - [ ] Changes are completed
+        - [ ] Tests pass
+        - [ ] CI passes
+        - [ ] Documentation is updated if necessary
+    validations:
+      required: true
