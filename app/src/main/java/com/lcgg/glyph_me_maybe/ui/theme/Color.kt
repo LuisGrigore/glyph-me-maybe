@@ -1,4 +1,4 @@
-package com.lcgg.glyph_me_maybe.theme
+package com.lcgg.glyph_me_maybe.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

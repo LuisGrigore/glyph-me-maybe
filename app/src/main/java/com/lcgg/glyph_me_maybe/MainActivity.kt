@@ -14,7 +14,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import com.lcgg.glyph_me_maybe.ui.theme.GlyphMeMaybeTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +21,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             UpdateCheckHandler()
-            _root_ide_package_.com.lcgg.glyph_me_maybe.theme.OhMyGOADTheme {
+            _root_ide_package_.com.lcgg.glyph_me_maybe.ui.theme.GlyphMeMaybeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     AppVersion(modifier = Modifier.padding(innerPadding))
                 }
@@ -50,7 +49,7 @@ fun AppVersion(modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun AppVersionPreview() {
-    _root_ide_package_.com.lcgg.glyph_me_maybe.theme.OhMyGOADTheme {
+    _root_ide_package_.com.lcgg.glyph_me_maybe.ui.theme.GlyphMeMaybeTheme {
         Text(text = "Version 1.0.0")
     }
 }
