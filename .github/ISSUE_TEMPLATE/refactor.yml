@@ -1,0 +1,49 @@
+name: "♻️ Refactor"
+description: Improve code structure or maintainability without changing intended behavior
+title: "[Refactor]: "
+labels:
+  - refactor
+
+body:
+  - type: textarea
+    id: current
+    attributes:
+      label: Current Situation
+      description: What part of the codebase needs improvement?
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What technical problem currently exists?
+      placeholder: "Duplicated code, high complexity, unclear architecture..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Refactor
+      description: Describe how the code should be improved.
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: What parts of the system could be affected?
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      placeholder: |
+        - [ ] Existing behavior is preserved
+        - [ ] Tests pass
+        - [ ] No regressions are introduced
+        - [ ] Code is easier to maintain
+    validations:
+      required: true
