@@ -15,7 +15,7 @@ Closes #
 - [ ] Refactor
 - [ ] Chore / maintenance
 - [ ] Documentation
-- [ ] Dependencies
+- [ ] Release
 - [ ] Other
 
 ## Changes Made
