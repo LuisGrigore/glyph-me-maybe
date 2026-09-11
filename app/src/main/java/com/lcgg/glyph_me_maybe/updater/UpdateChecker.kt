@@ -21,6 +21,19 @@ object UpdateChecker {
         return packageInfo.longVersionCode
     }
 
+    internal fun parseUpdateInfo(body: String): UpdateInfo {
+        val json = JSONObject(body)
+        return UpdateInfo(
+            versionCode = json.getInt("versionCode"),
+            versionName = json.getString("versionName"),
+            downloadUrl = json.getString("downloadUrl"),
+            sha256 = json.getString("sha256"),
+        )
+    }
+
+    internal fun isUpdateAvailable(remote: UpdateInfo, currentVersionCode: Long): Boolean =
+        remote.versionCode > currentVersionCode
+
     suspend fun checkForUpdate(context: Context): UpdateInfo? = withContext(Dispatchers.IO) {
         Log.d(TAG, "Checking for update at ${latestJsonUrl()}")
 
@@ -40,19 +53,12 @@ object UpdateChecker {
             val body = connection.inputStream.bufferedReader().use { it.readText() }
             Log.d(TAG, "Response body: $body")
 
-            val json = JSONObject(body)
-
-            val remote = UpdateInfo(
-                versionCode = json.getInt("versionCode"),
-                versionName = json.getString("versionName"),
-                downloadUrl = json.getString("downloadUrl"),
-                sha256 = json.getString("sha256"),
-            )
+            val remote = parseUpdateInfo(body)
 
             val current = currentVersionCode(context)
             Log.d(TAG, "Installed versionCode=$current, remote versionCode=${remote.versionCode}")
 
-            if (remote.versionCode > current) {
+            if (isUpdateAvailable(remote, current)) {
                 Log.i(TAG, "Update available: ${remote.versionName}")
                 remote
             } else {
