@@ -1,5 +1,6 @@
 package com.lcgg.glyph_me_maybe
 
+import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -9,7 +10,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.lcgg.glyph_me_maybe.ui.theme.GlyphMeMaybeTheme
 
@@ -18,12 +21,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            GlyphMeMaybeTheme {
+            UpdateCheckHandler()
+            _root_ide_package_.com.lcgg.glyph_me_maybe.theme.OhMyGOADTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                    AppVersion(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
@@ -31,17 +32,25 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
+fun AppVersion(modifier: Modifier = Modifier) {
+    val context = LocalContext.current
+    val versionName = remember {
+        context.packageManager.getPackageInfo(
+            context.packageName,
+            PackageManager.PackageInfoFlags.of(0),
+        ).versionName
+    }
+
     Text(
-        text = "Hello $name!",
-        modifier = modifier
+        text = "Version $versionName",
+        modifier = modifier,
     )
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    GlyphMeMaybeTheme {
-        Greeting("Android")
+fun AppVersionPreview() {
+    _root_ide_package_.com.lcgg.glyph_me_maybe.theme.OhMyGOADTheme {
+        Text(text = "Version 1.0.0")
     }
 }
