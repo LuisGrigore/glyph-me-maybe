@@ -1,4 +1,4 @@
-package com.lcgg.glyph_me_maybe
+package com.lcgg.glyph_me_maybe.updater
 
 import android.content.Context
 import android.content.pm.PackageManager

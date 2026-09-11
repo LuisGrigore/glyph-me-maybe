@@ -1,4 +1,4 @@
-package com.lcgg.glyph_me_maybe
+package com.lcgg.glyph_me_maybe.updater
 
 data class UpdateInfo(
     val versionCode: Int,
